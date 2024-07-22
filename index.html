@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اسم شركتك للديكور</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <style>
+    .hover-animate {
+      transition: transform 0.3s ease;
+    }
+    .hover-animate:hover {
+      transform: scale(1.05);
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #4B5563 #F3F4F6;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F3F4F6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #4B5563;
+      border-radius: 4px;
+    }
+    .hamburger {
+      cursor: pointer;
+      width: 24px;
+      height: 20px;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger.active .hamburger-top {
+      transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+    .hamburger.active .hamburger-middle {
+      opacity: 0;
+    }
+    .hamburger.active .hamburger-bottom {
+      transform: rotate(-45deg) translateY(-6px) translateX(6px);
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+      border-radius: 5px;
+    }
+    .hamburger-top {
+      top: 0;
+    }
+    .hamburger-middle {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .hamburger-bottom {
+      bottom: 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-cairo" style="direction: rtl;">
+  <header class="bg-white py-4 shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-bold text-gray-800">
+        <img src="logo.png" alt="." class="h-12 inline-block mr-2">
+   عباس للديكور
+      </a>
+      <nav class="md:block hidden">
+        <ul class="flex space-x-6 text-gray-600 text-lg">
+          <li><a href="#home" class="hover:text-gray-800">الرئيسية</a></li>
+          <li><a href="#about" class="hover:text-gray-800">من نحن</a></li>
+          <li><a href="#skills" class="hover:text-gray-800">خدماتنا</a></li>
+          <li><a href="#portfolio" class="hover:text-gray-800">المشاريع</a></li>
+          <li><a href="#testimonials" class="hover:text-gray-800">آراء العملاء</a></li>
+          <li><a href="#contact" class="hover:text-gray-800">اتصل بنا</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger md:hidden" id="mobileMenuBtn">
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
+      </button>
+    </div>
+    <div class="md:hidden bg-white shadow-md transition-all duration-300 ease-in-out transform -translate-y-full fixed top-0 left-0 w-full z-40" id="mobile-menu">
+      <ul class="py-4 px-6">
+        <li><a href="#home" class="block text-gray-800 hover:bg-gray-100 py-2 px-4 rounded">الرئيسية</a></li>
+        <li><a href="#about" class="block text-gray-800 hover:bg-gray-100 py-2 px-4 rounded">من نحن</a></li>
+        <li><a href="#skills" class="block text-gray-800 hover:bg-gray-100 py-2 px-4 rounded">خدماتنا</a></li>
+        <li><a href="#portfolio" class="block text-gray-800 hover:bg-gray-100 py-2 px-4 rounded">المشاريع</a></li>
+        <li><a href="#testimonials" class="block text-gray-800 hover:bg-gray-100 py-2 px-4 rounded">آراء العملاء</a></li>
+        <li><a href="#contact" class="block text-gray-800 hover:bg-gray-100 py-2 px-4 rounded">اتصل بنا</a></li>
+      </ul>
+      <button class="btn btn-ghost text-gray-800 absolute top-4 right-4" id="closeMobileMenuBtn">
+        <i class="material-icons">close</i>
+      </button>
+    </div>
+  </header>
+  <section id="home" class="bg-gray-100 pt-20 md:pt-32 pb-16 md:pb-24">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="hover-animate">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4 md:text-5xl lg:text-6xl">نجعل منازلكم تحفة فنية</h2>
+        <p class="text-gray-600 leading-relaxed mb-6 md:text-lg">
+          نحن نتميز بخبرتنا الواسعة في مجال الديكور، ونقدم خدماتنا بأعلى مستويات الجودة والإتقان.
+          نحرص على تقديم تصاميم عصرية وعملية تلبي احتياجاتكم وتتماشى مع أذواقكم.
+        </p>
+        <a href="#portfolio" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover-animate">
+          شاهد مشاريعنا
+        </a>
+      </div>
+      <div class="relative w-full h-64 md:h-96 lg:h-128 overflow-hidden">
+        <img src="hero.jpg" alt="صورة مميزة" class="absolute inset-0 object-cover w-full h-full hover-animate transform transition-transform duration-500 ease-in-out hover:scale-110">
+      </div>
+    </div>
+  </section>
+  <section id="about" class="bg-white py-12 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-800 text-center mb-8 md:text-5xl lg:text-6xl">من نحن</h2>
+      <p class="text-gray-600 leading-relaxed text-center text-lg md:text-xl">
+        تفخر شركة (اسم شركتك) للديكور بتقديم خدماتها في مجال التصميم الداخلي والخارجي للمنازل 
+        والمكاتب والمحلات التجارية. نمتلك فريقًا من المصممين المبدعين والمتخصصين في مختلف 
+        أنماط الديكور، ونعمل على تقديم حلول مبتكرة تلبي احتياجاتكم ورغباتكم. 
+      </p>
+    </div>
+  </section>
+  <section id="skills" class="bg-gray-100 py-12 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-800 text-center mb-8 md:text-5xl lg:text-6xl">خدماتنا</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover-animate">
+          <span class="material-icons text-4xl text-blue-500 mb-4">design_services</span>
+          <h3 class="text-lg font-bold text-gray-800 mb-2 md:text-xl">التصميم الداخلي</h3>
+          <p class="text-gray-600 text-center md:text-lg">
+            نص قصير يصف خدمة التصميم الداخلي 
+            بشكل مختصر وجذاب.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover-animate">
+          <span class="material-icons text-4xl text-blue-500 mb-4">home_repair_service</span>
+          <h3 class="text-lg font-bold text-gray-800 mb-2 md:text-xl">التصميم الخارجي</h3>
+          <p class="text-gray-600 text-center md:text-lg">
+            نص قصير يصف خدمة التصميم الخارجي 
+            بشكل مختصر وجذاب.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover-animate">
+          <span class="material-icons text-4xl text-blue-500 mb-4">palette</span>
+          <h3 class="text-lg font-bold text-gray-800 mb-2 md:text-xl">اختيار الألوان</h3>
+          <p class="text-gray-600 text-center md:text-lg">
+            نص قصير يصف خدمة اختيار الألوان 
+            بشكل مختصر وجذاب.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="portfolio" class="bg-white py-12 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-800 text-center mb-8 md:text-5xl lg:text-6xl">مشاريعنا</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover-animate">
+          <a href="project1.html">
+            <img src="project1.jpg" alt="مشروع 1" class="w-full transform transition-transform duration-500 ease-in-out hover:scale-105">
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-gray-800 mb-2 md:text-xl">اسم المشروع 1</h3>
+              <p class="text-gray-600 text-sm md:text-base">وصف قصير للمشروع</p>
+            </div>
+          </a>
+        </div>
+        <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover-animate">
+          <a href="project2.html">
+            <img src="project2.jpg" alt="مشروع 2" class="w-full transform transition-transform duration-500 ease-in-out hover:scale-105">
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-gray-800 mb-2 md:text-xl">اسم المشروع 2</h3>
+              <p class="text-gray-600 text-sm md:text-base">وصف قصير للمشروع</p>
+            </div>
+          </a>
+        </div>
+        <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover-animate">
+          <a href="project3.html">
+            <img src="project3.jpg" alt="مشروع 3" class="w-full transform transition-transform duration-500 ease-in-out hover:scale-105">
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-gray-800 mb-2 md:text-xl">اسم المشروع 3</h3>
+              <p class="text-gray-600 text-sm md:text-base">وصف قصير للمشروع</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="testimonials" class="bg-gray-100 py-12 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-800 text-center mb-8 md:text-5xl lg:text-6xl">آراء العملاء</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 hover-animate">
+          <p class="text-gray-600 text-center mb-4 text-base md:text-lg">"تجربتي مع (اسم شركتك) كانت رائعة!  
+            فريق عمل محترف وخدمة مميزة. أوصي بهم بشدة."
+          </p>
+          <h4 class="text-gray-800 font-semibold text-center md:text-lg">- اسم العميل</h4>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 hover-animate">
+          <p class="text-gray-600 text-center mb-4 text-base md:text-lg">"لقد قاموا بتصميم منزلي بشكل 
+            مذهل!  أشكرهم على ذوقهم الرفيع واحترافيتهم."
+          </p>
+          <h4 class="text-gray-800 font-semibold text-center md:text-lg">- اسم العميل</h4>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 hover-animate">
+          <p class="text-gray-600 text-center mb-4 text-base md:text-lg">"سعدت بالتعامل مع (اسم شركتك) 
+            للديكور.  فريق عمل متعاون و يهتم بأدق التفاصيل."
+          </p>
+          <h4 class="text-gray-800 font-semibold text-center md:text-lg">- اسم العميل</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="bg-gray-800 py-12 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-white text-center mb-8 md:text-5xl lg:text-6xl">اتصل بنا</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <form class="bg-white rounded-lg shadow-md p-6 hover-animate">
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-bold mb-2">الاسم:</label>
+            <input type="text" id="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">البريد الإلكتروني:</label>
+            <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block text-gray-700 font-bold mb-2">الرسالة:</label>
+            <textarea id="message" rows="5" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"></textarea>
+          </div>
+          <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover-animate">
+            إرسال
+          </button>
+        </form>
+        <div class="bg-white rounded-lg shadow-md p-6 hover-animate">
+          <h3 class="text-lg font-bold text-gray-800 mb-4 md:text-xl">معلومات الاتصال</h3>
+          <ul class="text-gray-600 text-base md:text-lg">
+            <li class="mb-2">
+              <span class="material-icons inline-block text-blue-500 mr-2">phone</span>
+              +966 123 456 7890
+            </li>
+            <li class="mb-2">
+              <span class="material-icons inline-block text-blue-500 mr-2">email</span>
+              info@example.com
+            </li>
+            <li>
+              <span class="material-icons inline-block text-blue-500 mr-2">location_on</span>
+              الرياض، المملكة العربية السعودية
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-gray-900 py-4 text-center text-white">
+    <p class="text-sm">&copy; 2023 - اسم شركتك للديكور. جميع الحقوق محفوظة.</p>
+  </footer>
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('-translate-y-full');
+      mobileMenu.classList.toggle('translate-y-0');
+    });
+
+    closeMobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('-translate-y-full');
+      mobileMenu.classList.remove('translate-y-0');
+      mobileMenuBtn.classList.remove('active');
+    });
+
+    ScrollReveal({
+      reset: true,
+      distance: '80px',
+      duration: 1000,
+      delay: 200
+    });
+    ScrollReveal().reveal('.hover-animate', { origin: 'bottom', delay: 300 });
+  </script>
+</body>
+</html>
