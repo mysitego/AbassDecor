@@ -70,18 +70,18 @@
   </style>
 </head>
 <body class="bg-blue-100 font-cairo" style="direction: rtl;">
-  <header class="bg-blue-900 py-4 shadow-md fixed top-0 left-0 right-0 z-50">
+  <header class="bg-blue-100 py-4 shadow-md fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto px-4 flex items-center justify-between">
-      <a href="#home" class="text-2xl font-bold text-white">
+      <a href="#home" class="text-2xl font-bold text-blue-600">
         <img src="logo.png" alt="" class="h-12 inline-block mr-2">
 ابو هيمان للديكور      </a>
       <nav class="md:block hidden">
-        <ul class="flex space-x-6 text-white text-lg">
-          <li><a href="#home" class="hover:text-blue-300">الرئيسية</a></li>
-          <li><a href="#about" class="hover:text-blue-300">من نحن</a></li>
-          <li><a href="#skills" class="hover:text-blue-300">خدماتنا</a></li>
-          <li><a href="#portfolio" class="hover:text-blue-300">المشاريع</a></li>
-          <li><a href="#contact" class="hover:text-blue-300">اتصل بنا</a></li>
+        <ul class="flex space-x-6 text-blue-900 text-lg">
+          <li><a href="#home" class="hover:text-blue-700 px-4">الرئيسية</a></li>
+          <li><a href="#about" class="hover:text-blue-700 px-4">من نحن</a></li>
+          <li><a href="#skills" class="hover:text-blue-700">خدماتنا</a></li>
+          <li><a href="#portfolio" class="hover:text-blue-700">المشاريع</a></li>
+          <li><a href="#contact" class="hover:text-blue-700">اتصل بنا</a></li>
         </ul>
       </nav>
       <button class="hamburger md:hidden" id="mobileMenuBtn">
@@ -90,22 +90,21 @@
         <span class="hamburger-bottom"></span>
       </button>
     </div>
-    <div class="md:hidden bg-blue-900 shadow-md transition-all duration-300 ease-in-out transform -translate-y-full fixed top-0 left-0 w-full z-40" id="mobile-menu">
-      <ul class="py-4 px-6">
-        <li><a href="#home" class="block text-white hover:bg-blue-800 py-2 px-4 rounded">الرئيسية</a></li>
-        <li><a href="#about" class="block text-white hover:bg-blue-800 py-2 px-4 rounded">من نحن</a></li>
-        <li><a href="#skills" class="block text-white hover:bg-blue-800 py-2 px-4 rounded">خدماتنا</a></li>
-        <li><a href="#portfolio" class="block text-white hover:bg-blue-800 py-2 px-4 rounded">المشاريع</a></li>
-        <li><a href="#testimonials" class="block text-white hover:bg-blue-800 py-2 px-4 rounded">آراء العملاء</a></li>
-        <li><a href="#contact" class="block text-white hover:bg-blue-800 py-2 px-4 rounded">اتصل بنا</a></li>
+    <div class="md:hidden bg-blue-100 shadow-md transition-all duration-300 ease-in-out transform -translate-y-full fixed top-0 left-0 w-full z-40" id="mobile-menu">
+      <ul class="py-12 px-6">
+        <li class="py-4"><a href="#home" class="hover:text-blue-700 ">الرئيسية</a></li>
+        <li class="py-4"><a href="#about" class="hover:text-blue-700 ">من نحن</a></li>
+        <li class="py-4"><a href="#skills" class="hover:text-blue-700 ">خدماتنا</a></li>
+        <li class="py-4"><a href="#portfolio" class="hover:text-blue-700 ">المشاريع</a></li>
+        <li class="py-4"><a href="#contact" class="hover:text-blue-700 ">اتصل بنا</a></li>
       </ul>
-      <button class="btn btn-ghost text-white absolute top-4 right-4" id="closeMobileMenuBtn">
+      <button class="btn btn-ghost text-blue-600 absolute top-4 left-4" id="closeMobileMenuBtn">
         <i class="material-icons">close</i>
       </button>
     </div>
   </header>
   <section id="home" class="bg-blue-100 pt-20 md:pt-32 pb-16 md:pb-24">
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-center">
       <div class="hover-animate">
         <h2 class="text-4xl font-bold text-blue-800 mb-4 md:text-5xl lg:text-6xl">نجعل منازلكم تحفة فنية</h2>
         <p class="text-blue-600 leading-relaxed mb-6 md:text-lg">
@@ -116,8 +115,8 @@
           شاهد مشاريعنا
         </a>
       </div>
-      <div class="relative w-full h-64 md:h-96 lg:h-128 overflow-hidden">
-        <img src="images/2.jpg" alt="صورة مميزة" class="absolute rounded-lg inset-0 object-cover w-full h-full hover-animate transform transition-transform duration-500 ease-in-out hover:scale-110">
+      <div class="relative w-full h-64 md:h-96 lg:h-128 overflow-hidden rounded-lg  " >
+        <img src="images/14.jpg" alt="صورة مميزة" class="absolute rounded-lg inset-0 object-cover w-full h-full hover-animate transform transition-transform duration-500 ease-in-out hover:scale-110">
       </div>
     </div>
   </section>
@@ -169,7 +168,7 @@
             <div class="p-4">
               <h3 class="text-lg font-bold text-blue-800 mb-2 md:text-xl"> مدخل مرايه معا بديل خشب معا اناره  </h3>
               <p class="text-blue-600 text-sm md:text-base"> مدخل مرايه معا بديل خشب معا اناره  </p>
-              <a href="project1.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
+              <a href="shows.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
             </div>
           </a>
         </div>
@@ -179,7 +178,7 @@
             <div class="p-4">
               <h3 class="text-lg font-bold text-blue-800 mb-2 md:text-xl"> مدخل مرايه معا بديل خشب معا اناره  </h3>
               <p class="text-blue-600 text-sm md:text-base"> مدخل مرايه معا بديل خشب معا اناره  </p>
-              <a href="project2.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
+              <a href="shows.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
             </div>
           </a>
         </div>
@@ -189,7 +188,37 @@
             <div class="p-4">
               <h3 class="text-lg font-bold text-blue-800 mb-2 md:text-xl"> مدخل مرايه معا بديل خشب معا اناره  </h3>
               <p class="text-blue-600 text-sm md:text-base"> مدخل مرايه معا بديل خشب معا اناره  </p>
-              <a href="project3.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
+              <a href="shows.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
+            </div>
+          </a>
+        </div>
+        <div class="bg-blue-100 rounded-lg shadow-md overflow-hidden hover-animate">
+          <a href="project3.html">
+            <img src="images/4.jpg" alt="مشروع 3" class="w-full transform transition-transform duration-500 ease-in-out hover:scale-105">
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-blue-800 mb-2 md:text-xl"> مدخل مرايه معا بديل خشب معا اناره  </h3>
+              <p class="text-blue-600 text-sm md:text-base"> مدخل مرايه معا بديل خشب معا اناره  </p>
+              <a href="shows.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
+            </div>
+          </a>
+        </div>
+        <div class="bg-blue-100 rounded-lg shadow-md overflow-hidden hover-animate">
+          <a href=shows.html">
+            <img src="images/5.jpg" alt="مشروع 3" class="w-full transform transition-transform duration-500 ease-in-out hover:scale-105">
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-blue-800 mb-2 md:text-xl"> مدخل مرايه معا بديل خشب معا اناره  </h3>
+              <p class="text-blue-600 text-sm md:text-base"> مدخل مرايه معا بديل خشب معا اناره  </p>
+              <a href="shows.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
+            </div>
+          </a>
+        </div>
+        <div class="bg-blue-100 rounded-lg shadow-md overflow-hidden hover-animate">
+          <a href="shows.html">
+            <img src="images/6.jpg" alt="مشروع 3" class="w-full transform transition-transform duration-500 ease-in-out hover:scale-105">
+            <div class="p-4">
+              <h3 class="text-lg font-bold text-blue-800 mb-2 md:text-xl"> مدخل مرايه معا بديل خشب معا اناره  </h3>
+              <p class="text-blue-600 text-sm md:text-base"> مدخل مرايه معا بديل خشب معا اناره  </p>
+              <a href="shows.html" class="text-green-500 hover:text-green-600 mt-2 inline-block">عرض المزيد</a>
             </div>
           </a>
         </div>

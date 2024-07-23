@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ابو هيمان للديكور</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <style>
+      .gallery-item {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .fullscreen-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .fullscreen-image {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+    }
+    .fullscreen-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .fullscreen-overlay.active .fullscreen-image {
+      transform: scale(1);
+    }
+    .hover-animate {
+      transition: transform 0.3s ease;
+    }
+    .hover-animate:hover {
+      transform: scale(1.05);
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #4ECDC4 #F7F7F7;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F7F7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #4ECDC4;
+      border-radius: 4px;
+    }
+    .hamburger {
+      cursor: pointer;
+      width: 24px;
+      height: 20px;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger.active .hamburger-top {
+      transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+    .hamburger.active .hamburger-middle {
+      opacity: 0;
+    }
+    .hamburger.active .hamburger-bottom {
+      transform: rotate(-45deg) translateY(-6px) translateX(6px);
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+      border-radius: 5px;
+    }
+    .hamburger-top {
+      top: 0;
+    }
+    .hamburger-middle {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .hamburger-bottom {
+      bottom: 0;
+    }
+  </style>
+</head>
+<body class="bg-blue-100 font-cairo" style="direction: rtl;">
+  <header class="bg-blue-100 py-4 shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-bold text-blue-600">
+        <img src="logo.png" alt="" class="h-12 inline-block mr-2">
+ابو هيمان للديكور      </a>
+      <nav class="md:block hidden">
+        <ul class="flex space-x-6 text-blue-600 text-lg">
+          <li><a href="index.html" class="hover:text-blue-700 px-4">الرئيسية</a></li>
+          <li><a href="index.html" class="hover:text-blue-700 px-4">من نحن</a></li>
+          <li><a href="index.html" class="hover:text-blue-700">خدماتنا</a></li>
+          <li><a href="index.html" class="hover:text-blue-700">المشاريع</a></li>
+          <li><a href="index.html" class="hover:text-blue-700">اتصل بنا</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger md:hidden" id="mobileMenuBtn">
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
+      </button>
+    </div>
+    <div class="md:hidden bg-blue-900 shadow-md transition-all duration-300 ease-in-out transform -translate-y-full fixed top-0 left-0 w-full z-40" id="mobile-menu">
+      <ul class="py-4 px-6">
+        <li><a href="index.html" class="hover:text-blue-700 px-4">الرئيسية</a></li>
+        <li><a href="index.html" class="hover:text-blue-700 px-4">من نحن</a></li>
+        <li><a href="index.html" class="hover:text-blue-700">خدماتنا</a></li>
+        <li><a href="index.html" class="hover:text-blue-700">المشاريع</a></li>
+        <li><a href="index.html" class="hover:text-blue-700">اتصل بنا</a></li>
+      </ul>
+      <button class="btn btn-ghost text-white absolute top-4 right-4" id="closeMobileMenuBtn">
+        <i class="material-icons">close</i>
+      </button>
+    </div>
+  </header>
+  <main class="container mx-auto px-4 py-8 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/5.jpg" alt="صورة 1" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/6.jpg" alt="صورة 2" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/7.jpg" alt="صورة 3" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/8.jpg" alt="صورة 3" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/9.jpg" alt="صورة 3" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/10.jpg" alt="صورة 3" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/11.jpg" alt="صورة 3" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/12.jpg" alt="صورة 3" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <div class="gallery-item bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/13.jpg" alt="صورة 3" class="w-full h-64 object-cover cursor-pointer" onclick="openFullscreen(this)">
+      </div>
+      <!-- إضافة المزيد من الصور هنا -->
+    </div>
+  </main>
+  <div id="fullscreenOverlay" class="fullscreen-overlay">
+    <img id="fullscreenImage" class="fullscreen-image" src="" alt="Fullscreen Image">
+  </div>
+  <section id="contact" class="bg-blue-100 py-12 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-blue-800 text-center mb-8 md:text-5xl lg:text-6xl">اتصل بنا</h2>
+      <div class="text-center">
+        <p class="text-gray-600 text-lg mb-6">موقعنا الرئيسي: محايل عسير</p>
+        <a href="https://wa.me/1234567890" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md inline-block">
+          تواصل عبر واتساب
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-blue-900 py-4 text-center text-white">
+    <p class="text-sm">&copy; 2023 - ابو هيمان للديكور. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <!-- Fixed Icons -->
+  <div class="fixed-icons z-50  bg-blue-500">
+    <a href="https://wa.me/+966558981352" target="_blank" class="fixed bottom-10 right-10 text-2xl  z-50 bg-green-500 rounded-lg p-2">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+  </div>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenuBtn = document.getElementById('closeMobileMenuBtn');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('-translate-y-full');
+      mobileMenu.classList.toggle('translate-y-0');
+    });
+
+    closeMobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('-translate-y-full');
+      mobileMenu.classList.remove('translate-y-0');
+      mobileMenuBtn.classList.remove('active');
+    });
+
+    ScrollReveal({
+      reset: true,
+      distance: '80px',
+      duration: 1000,
+      delay: 200
+    });
+    ScrollReveal().reveal('.hover-animate', { origin: 'bottom', delay: 300 });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script>
+    let currentImage;
+
+    function openFullscreen(img) {
+      const overlay = document.getElementById('fullscreenOverlay');
+      const fullscreenImage = document.getElementById('fullscreenImage');
+      fullscreenImage.src = img.src;
+      overlay.classList.add('active');
+      currentImage = fullscreenImage;
+
+      const hammer = new Hammer(overlay);
+      hammer.get('pinch').set({ enable: true });
+
+      let scale = 1;
+      hammer.on('pinch', (e) => {
+        scale = Math.max(1, scale * e.scale);
+        gsap.to(currentImage, { scale: scale });
+        e.preventDefault();
+      });
+
+      hammer.on('pinchend', (e) => {
+        scale = 1;
+        gsap.to(currentImage, { scale: 1 });
+        e.preventDefault();
+      });
+
+      overlay.addEventListener('click', closeFullscreen);
+    }
+
+    function closeFullscreen() {
+      const overlay = document.getElementById('fullscreenOverlay');
+      overlay.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
